@@ -24,7 +24,9 @@ function TextListPage() {
     <>
       
           {
-            isUploadFile?<div style={{position:'fixed',display:'flex',alignItems:'center',justifyContent:'center',height:'100vh',width:'100vw',backdropFilter:'blur(5px)'}} >
+            isUploadFile?<div style={{position:'fixed',display:'flex',alignItems:'center',justifyContent:'center',height:'100vh',width:'100vw',backdropFilter:'blur(5px)'}} distinguisher={"BackGround"} onClick={x=>{
+              if(x.target.getAttribute("distinguisher") === "BackGround")setIsUploadFile(false);
+            }}>
               <div>
                 <UploadBox/>
               </div>

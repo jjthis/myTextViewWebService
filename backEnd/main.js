@@ -2,14 +2,36 @@ const express = require("express");
 const app = express();
 const port = 3010;
 const fs=require("fs");
-const textDir="./assets/userFiles/";
+const multer = require('multer');
+const base64Url = require('./base64Url.js');
+
+///https://063c77ec-cfa9-4a5e-b257-62c5f0c0e342-00-udpmwag5y4f1.sisko.replit.dev:8080/
+
 
 const cors = require("cors");
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.send("Hello World!ss");
+  res.send(base64Url.encodeBase64("Hello World!ss"));
 });
+
+const textDir="./assets/userFiles/";
+const storage = multer.diskStorage({
+  destination: textDir,
+  filename: function(req, file, cb) {
+    cb(null, base64Url.encodeBase64(file.originalname) );
+  }
+});
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 100000000 }
+});
+
+app.post("/upload", upload.single("files"), function(req, res, next) {
+    res.send({
+      fileName: req.file.filename
+    });
+  });
 
 app.get("/fileList", (req, res) => {
   res.send(fs.readdirSync(textDir));

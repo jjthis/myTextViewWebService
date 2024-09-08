@@ -8,7 +8,7 @@ import axios from "axios";
 import Button from "../components/Button";
 function TextViewPage() {
   const { id } = useParams();
-  let [line,setLine] = useState(5);
+  let [line,setLine] = useState(0);
   let [text,setText] = useState("");
   useEffect(()=>{
     // setText("");
@@ -17,10 +17,12 @@ function TextViewPage() {
         'Content-Type': 'application/json & application/x-www-form-urlencoded'
       }
     }).then((res) => {
-      console.log(res.data);
       setText(res.data);
     });
   },[line,id]);
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  },[text])
   
   return (
    <>

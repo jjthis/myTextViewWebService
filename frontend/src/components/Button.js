@@ -1,11 +1,11 @@
 import styles from '../styles/Button.module.css';
-function Button({onClick:func,style:st,text}) {
+function Button(opt) {
   return (
-       <div className={styles.mainChild} onClick={func} style={st}>
-        <p align="center">
-          {text}
-        </p>
-       </div>
+       <span className={styles.mainChild} {...opt}>
+        {/* <p align="center"> */}
+          {opt.text}
+        {/* </p> */}
+       </span>
   );
 }
 export default Button;

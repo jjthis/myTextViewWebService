@@ -22,3 +22,8 @@ pm2 stop main
 git rm --cached . -rf 
 후 다시 add commit push 
 ```
+
+todo.
+```
+인코딩 맞추기, 새로고침
+```
