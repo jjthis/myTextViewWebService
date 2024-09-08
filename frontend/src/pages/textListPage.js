@@ -10,6 +10,7 @@ function TextListPage() {
   const navigate = useNavigate();
   let [fileList,setFileList] = useState([]);
   useEffect(()=>{
+    if(isUploadFile)return;
     axios.get('https://063c77ec-cfa9-4a5e-b257-62c5f0c0e342-00-udpmwag5y4f1.sisko.replit.dev:8080/fileList', [], {
       headers: {
         'Content-Type': 'application/json & application/x-www-form-urlencoded'
@@ -17,7 +18,7 @@ function TextListPage() {
     }).then((res) => {
       setFileList(res.data);
     });
-  },[]); 
+  },[isUploadFile]); 
   let [isUploadFile,setIsUploadFile] = useState(false);
   
   return (
