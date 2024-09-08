@@ -1,0 +1,40 @@
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+</body>
+
+ul {
+  padding-left: 0;
+}
+
+ul li {
+  background-color: pink;
+  margin-bottom: 20px;
+  list-style: none;
+  text-align: center;
+  color: #fff;
+  font-size: 100px;
+  padding: 100px 0;
+}
+
+/* 짝수, 홀수 색상 구분하기 위해 */
+li:nth-child(2n) {
+  background-color: skyblue;
+}
+
+
+(() => {
+const ul = document.querySelector('ul');
+let li;
+let count = ul.children.length;
+document.addEventListener('scroll', () => {
+//window height + window scrollY 값이 document height보다 클 경우,
+if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+li = ul.insertBefore(document.createElement('li'),ul.children[1]);
+li.textContent = ++count;
+    }
+  })
+})();
