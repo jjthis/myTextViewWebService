@@ -14,3 +14,11 @@ cd frontend && npm start
 ```
 pm2 stop main
 ```
+
+프로젝트 중 각종오류
+```
+폴더에 화살표가 뜨며 업로드가 안되는 현상
+그 폴더의 .git 폴더를 지우고
+git rm --cached . -rf 
+후 다시 add commit push 
+```
