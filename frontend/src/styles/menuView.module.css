@@ -1,0 +1,7 @@
+.slideMenuMainDiv{
+  height:100%;
+  width:30%;
+  background:#aaabba;
+  position:fixed;
+  transition: 0.4s ease;
+}

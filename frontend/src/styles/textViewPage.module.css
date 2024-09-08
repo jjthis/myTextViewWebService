@@ -1,0 +1,20 @@
+p{
+  padding:2px 0px 0px 0px;
+  width:auto;
+}
+.mainTextViewContents{
+  background:#F1D3CE;
+  padding:10px 10px 10px 15px;
+  width:50%;
+  display:flex;
+  align-content:center;
+  justify-content:center;
+  flex-direction:column;
+}
+.nextPrevButton{
+  display:flex;
+  align-content:center;
+  justify-content:center;
+  flex-direction:row;
+  padding:10px 10px 10px 15px;
+}
