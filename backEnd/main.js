@@ -54,7 +54,7 @@ app.get("/file/:id", (req, res) => {
   line=line|0;
   console.log(line);
   try{
-    let data=(fs.readFileSync(textDir+decodeURIComponent(q.id))+"").split('\n');
+    let data=(fs.readFileSync(textDir+encodeURIComponent(q.id))+"").split('\n');
     // console.log(data.slice(3));
     res.send(data.slice(line,line+70).join('\n'));
   }catch(e){

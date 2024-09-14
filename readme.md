@@ -8,8 +8,8 @@ test
 
 build 방법
 ```
-cd backEnd && pm2 start main.js --watch
-cd frontend && npm run dev
+cd backEnd && node main
+cd FrontEnd && npm run dev
 ```
 
 종료방법
