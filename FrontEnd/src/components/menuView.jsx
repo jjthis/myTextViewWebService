@@ -2,6 +2,7 @@
 import {isSlideBarOpened} from '../utils/contextList';
 import styles from '../styles/menuView.module.css';
 import { useContext, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 function MenuView() {
   // const navigate = useNavigate();
   const {state:isOpened, actions:setOpened} = useContext(isSlideBarOpened);
@@ -55,10 +56,19 @@ function MenuView() {
       window.removeEventListener('touchend', touch_end);
     };
   },[setOpened]);
+  const location = useLocation();
   
   return(
     <div ref={slideRef} className={styles.slideMenuMainDiv} style={{transform: `translatex(${(isOpened?"0%":"-100%")})`}}>
+      <div>
       {isOpened+""}
+
+      </div>
+      <div style={{
+    "wordBreak": "break-all"}}>
+      {JSON.stringify(location)}
+      </div>
+      
     </div>
   );
 }

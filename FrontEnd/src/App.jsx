@@ -27,6 +27,7 @@ function App() {
             <Route path="/" element={<MainPage />} />
             <Route path="/TextList" element={<TextListPage />} />
             <Route path="/TextView/:id" element={<TextViewPage />} />
+            <Route path="/proxy/3050/absproxy/3050/" element={<MainPage />} />
           </Routes>
         </div>
     </BrowserRouter>

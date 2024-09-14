@@ -19,6 +19,7 @@ const textDir="./assets/userFiles/";
 const storage = multer.diskStorage({
   destination: textDir,
   filename: function(req, file, cb) {
+    file.originalname = Buffer.from(file.originalname, 'latin1').toString('utf8')
     cb(null, base64Url.encodeBase64(file.originalname) );
   }
 });
@@ -34,7 +35,16 @@ app.post("/upload", upload.single("files"), function(req, res, next) {
   });
 
 app.get("/fileList", (req, res) => {
-  res.send(fs.readdirSync(textDir));
+  list = fs.readdirSync(textDir).map(filename => {
+    return {
+      filename: filename,
+      mtime: fs.statSync(textDir + filename).mtime
+    }
+  })
+   
+  list.sort((a, b) => a.mtime - b.mtime )
+  list = list.map(f => f.filename);
+  res.send(list);
 });
 
 app.get("/file/:id", (req, res) => {

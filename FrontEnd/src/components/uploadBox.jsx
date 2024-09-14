@@ -2,6 +2,7 @@ import styles from '../styles/uploadBox.module.css';
 import { useState } from 'react';
 import Button from './Button';
 import axios from 'axios';
+import { BACKEND_SERVER_URL } from '../utils/constant';
 
 //https://guiyomi.tistory.com/148
 ///https://velog.io/@aimzero9303/%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%B2%84%EB%B8%94%EB%A7%81-%EC%9D%B4%EC%8A%88-%ED%95%B4%EA%B2%B0
@@ -74,7 +75,7 @@ const UploadBox = () => {
 
       console.log(Array.from(formData));
 
-      axios.post('https://063c77ec-cfa9-4a5e-b257-62c5f0c0e342-00-udpmwag5y4f1.sisko.replit.dev:8080/upload', formData, {
+      axios.post(BACKEND_SERVER_URL+'/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

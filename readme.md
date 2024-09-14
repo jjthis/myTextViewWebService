@@ -9,7 +9,7 @@ test
 build 방법
 ```
 cd backEnd && pm2 start main.js --watch
-cd frontend && npm start
+cd frontend && npm run dev
 ```
 
 종료방법
@@ -27,5 +27,5 @@ git rm --cached . -rf
 
 todo.
 ```
-인코딩 맞추기, 새로고침
+인코딩 맞추기
 ```

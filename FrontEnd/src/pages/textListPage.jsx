@@ -4,22 +4,24 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import {decodeBase64} from "../utils/base64Url";
 import UploadBox from "../components/uploadBox";
+import {BACKEND_SERVER_URL} from "../utils/constant"
 
 
 function TextListPage() {
   const navigate = useNavigate();
+
   let [fileList,setFileList] = useState([]);
+  let [isUploadFile,setIsUploadFile] = useState(false);
   useEffect(()=>{
     if(isUploadFile)return;
-    axios.get('https://063c77ec-cfa9-4a5e-b257-62c5f0c0e342-00-udpmwag5y4f1.sisko.replit.dev:8080/fileList', [], {
+    axios.get(BACKEND_SERVER_URL+'/fileList', [], {
       headers: {
         'Content-Type': 'application/json & application/x-www-form-urlencoded'
       }
     }).then((res) => {
       setFileList(res.data);
     });
-  },[isUploadFile]); 
-  let [isUploadFile,setIsUploadFile] = useState(false);
+  },[isUploadFile]); //isUploadFile
   
   return (
     <>

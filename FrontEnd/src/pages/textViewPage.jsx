@@ -6,15 +6,16 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Button from "../components/Button";
+import { BACKEND_SERVER_URL } from "../utils/constant";
 function TextViewPage() {
   const { id } = useParams();
   let [line,setLine] = useState(0);
   let [text,setText] = useState("");
   useEffect(()=>{
     // setText("");
-    axios.get('https://063c77ec-cfa9-4a5e-b257-62c5f0c0e342-00-udpmwag5y4f1.sisko.replit.dev:8080/file/'+encodeBase64(id)+"?line="+line, [], {
+    axios.get(BACKEND_SERVER_URL+'/file/'+encodeBase64(id)+"?line="+line, [], {
       headers: {
-        'Content-Type': 'application/json & application/x-www-form-urlencoded'
+        'Content-Type': 'application/json & application/x-www-form-urlencoded; charset=euc-kr'
       }
     }).then((res) => {
       setText(res.data);
