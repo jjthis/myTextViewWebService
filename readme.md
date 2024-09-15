@@ -27,5 +27,10 @@ git rm --cached . -rf
 
 todo.
 ```
-인코딩 맞추기
+인코딩 맞추기, 이전 정보 저장, 로그인 및 개인 설정
 ```
+
+![image](./readmeSrc/캡처.PNG)
+![image](./readmeSrc/캡2.PNG)
+![image](./readmeSrc/캡처3.PNG)
+![image](./readmeSrc/캡처4.PNG)
