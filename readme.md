@@ -12,10 +12,6 @@ cd backEnd && node main
 cd FrontEnd && npm run dev
 ```
 
-종료방법
-```
-pm2 stop main
-```
 
 프로젝트 중 각종오류
 ```
